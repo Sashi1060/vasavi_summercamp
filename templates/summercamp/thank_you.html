@@ -1,0 +1,24 @@
+{% extends "summercamp/base.html" %}
+
+{% block title %}Thank You | Soujanya's Summer Camp{% endblock %}
+
+{% block content %}
+<section class="section-space">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="hero-card card text-center">
+                    <div class="card-body p-4 p-lg-5">
+                        <span class="accent-pill">Enquiry Submitted</span>
+                        <h1 class="h2 fw-bold mt-3">Thank you for your enquiry</h1>
+                        <p class="text-secondary mt-3 mb-4">
+                            We have received your details and will get in touch with you soon about Soujanya's Summer Camp.
+                        </p>
+                        <a class="btn btn-primary" href="{% url 'summercamp:home' %}">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

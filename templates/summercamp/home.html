@@ -1,0 +1,435 @@
+{% extends "summercamp/base.html" %}
+
+{% block title %}Soujanya's Summer Camp | Vasavi Sri Nilayam{% endblock %}
+
+{% block extra_css %}
+<style>
+    .page-hero {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(135deg, rgba(255, 209, 102, 0.22), transparent 42%),
+            linear-gradient(315deg, rgba(217, 237, 255, 0.85), transparent 48%);
+        pointer-events: none;
+    }
+
+    .hero-layout,
+    .batch-layout,
+    .activity-layout {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4.75rem);
+        line-height: 1;
+        letter-spacing: -0.04em;
+    }
+
+    .hero-copy {
+        max-width: 42rem;
+        font-size: 1.1rem;
+    }
+
+    .spotlight-card {
+        background: linear-gradient(160deg, #fff6e6 0%, #ffffff 100%);
+        border: 1px solid rgba(238, 108, 77, 0.12);
+    }
+
+    .story-strip {
+        background: var(--camp-deep);
+        color: #fff;
+        border-radius: 1.5rem;
+    }
+
+    .story-strip p,
+    .story-strip small {
+        color: rgba(255, 255, 255, 0.82);
+    }
+
+    .session-panel {
+        border-radius: 1.5rem;
+        padding: 2rem;
+        height: 100%;
+    }
+
+    .session-panel.morning {
+        background: linear-gradient(180deg, #fff8dc 0%, #fffdf5 100%);
+    }
+
+    .session-panel.evening {
+        background: linear-gradient(180deg, #e7f2ff 0%, #fbfdff 100%);
+    }
+
+    .session-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .session-chip {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(29, 53, 87, 0.08);
+        border-radius: 999px;
+        padding: 0.55rem 0.95rem;
+        font-weight: 600;
+    }
+
+    .list-card {
+        background: rgba(255, 255, 255, 0.78);
+        border-radius: 1.25rem;
+        padding: 1.35rem;
+        height: 100%;
+        box-shadow: inset 0 0 0 1px rgba(29, 53, 87, 0.06);
+    }
+
+    .list-card ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0;
+    }
+
+    .list-card li + li {
+        margin-top: 0.45rem;
+    }
+
+    .activity-banner {
+        background: linear-gradient(135deg, #fff7ef 0%, #ffffff 100%);
+        border-radius: 1.5rem;
+        border: 1px solid rgba(29, 53, 87, 0.08);
+    }
+
+    .form-shell {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 248, 240, 0.96));
+    }
+
+    .mini-note {
+        color: #5b6b7c;
+    }
+
+    .date-band {
+        background: rgba(18, 48, 74, 0.06);
+        border: 1px solid rgba(29, 53, 87, 0.08);
+        border-radius: 1rem;
+        padding: 0.9rem 1rem;
+    }
+
+    @media (max-width: 991.98px) {
+        .section-space {
+            padding: 4rem 0;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="section-space pt-5">
+    <div class="container">
+        <div class="page-hero hero-card card border-0">
+            <div class="card-body p-4 p-lg-5">
+                <div class="hero-layout row align-items-center g-4 g-lg-5">
+                    <div class="col-lg-7">
+                        <span class="accent-pill">Soujanya's Summer Camp at Vasavi Sri Nilayam</span>
+                        <h1 class="hero-title fw-bold mt-3">Two joyful years completed. The third year begins.</h1>
+                        <p class="hero-copy text-secondary mt-3 mb-0">
+                            Soujanya's Summer Camp has successfully completed two wonderful years, and this season marks our third year of creative learning, playful discovery, and cultural activities for children in Hyderabad.
+                        </p>
+                        <div class="date-band mt-4">
+                            <small class="d-block text-uppercase fw-semibold mb-1">Camp Dates</small>
+                            <p class="mb-0 fw-semibold">April 30, 2026 to June 1, 2026</p>
+                        </div>
+                        <div class="d-flex flex-wrap gap-3 mt-4">
+                            <a class="btn btn-primary btn-lg" href="#sessions">View Sessions</a>
+                            <a class="btn btn-whatsapp btn-lg" href="https://wa.me/919849228788" target="_blank" rel="noopener">Chat on WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="spotlight-card card border-0 h-100">
+                            <div class="card-body p-4 p-lg-5">
+                                <p class="text-uppercase fw-semibold small mb-2">Third Year Highlight</p>
+                                <h2 class="h3 fw-bold">A refreshed camp with dedicated Morning and Evening sessions</h2>
+                                <p class="text-secondary mb-4">
+                                    Morning sessions focus on crafts, games, songs, and shlokas. Evening sessions introduce hand embroidery, fabric painting, dot mandala art, and mehendi.
+                                </p>
+                                <div class="list-card mb-3">
+                                    <small class="d-block text-uppercase fw-semibold mb-2">Timeline</small>
+                                    <p class="mb-0 fw-semibold">April 30, 2026 to June 1, 2026</p>
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="list-card">
+                                            <small class="d-block text-uppercase fw-semibold mb-2">Morning</small>
+                                            <p class="mb-0 fw-semibold">10:00 AM to 12:00 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="list-card">
+                                            <small class="d-block text-uppercase fw-semibold mb-2">Evening</small>
+                                            <p class="mb-0 fw-semibold">3:00 PM to 5:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-strip mt-4 p-4 p-lg-5">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-4">
+                    <h2 class="h3 fw-bold mb-2">A camp families return to</h2>
+                    <p class="mb-0">Built on two successful years of trust, warmth, and creativity.</p>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <div class="list-card text-dark">
+                                <small class="d-block text-uppercase fw-semibold mb-2">Year 1</small>
+                                <p class="mb-0">Laid the foundation with joyful learning and community participation.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="list-card text-dark">
+                                <small class="d-block text-uppercase fw-semibold mb-2">Year 2</small>
+                                <p class="mb-0">Strengthened the camp experience with engaging crafts, games, and cultural sessions.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="list-card text-dark">
+                                <small class="d-block text-uppercase fw-semibold mb-2">Year 3</small>
+                                <p class="mb-0">Expands into a more structured format with distinct Morning and Evening sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="sessions" class="section-space pt-0">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="accent-pill">Camp Sessions</span>
+            <h2 class="fw-bold mt-3">Two sessions, each with a clear activity focus</h2>
+            <p class="text-secondary mb-0">The camp runs from April 30, 2026 to June 1, 2026, with the full Morning session program and the new Evening session shown below.</p>
+        </div>
+
+        <div class="batch-layout row g-4">
+            <div class="col-lg-7">
+                <div class="session-panel morning">
+                    <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+                        <div>
+                            <span class="accent-pill">Morning Session</span>
+                            <h3 class="display-6 fw-bold mt-3 mb-2">Creative learning, games, songs, and shlokas</h3>
+                            <p class="text-secondary mb-0">All existing crafts, games, and songs and shlokas are part of the Morning session.</p>
+                        </div>
+                    </div>
+
+                    <div class="session-meta">
+                        <div class="session-chip">Ages 8-12 years</div>
+                        <div class="session-chip">10:00 AM to 12:00 PM</div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="list-card">
+                                <h4 class="h5 fw-bold">Crafts</h4>
+                                <ul>
+                                    <li>Flower making</li>
+                                    <li>Pot painting</li>
+                                    <li>Glass painting</li>
+                                    <li>Best out of waste</li>
+                                    <li>Drawing</li>
+                                    <li>Other creative craft activities</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="list-card">
+                                <h4 class="h5 fw-bold">Games</h4>
+                                <ul>
+                                    <li>Chess</li>
+                                    <li>Carrom</li>
+                                    <li>Puzzles</li>
+                                    <li>Playful focus-building activities</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="list-card">
+                                <h4 class="h5 fw-bold">Songs and Shlokas</h4>
+                                <ul>
+                                    <li>Meaningful songs</li>
+                                    <li>Shlokas</li>
+                                    <li>Friendly community participation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="session-panel evening">
+                    <span class="accent-pill">Evening Session</span>
+                    <h3 class="display-6 fw-bold mt-3 mb-2">A focused creative arts session</h3>
+                    <p class="text-secondary mb-0">The new Evening session is designed around hands-on decorative and textile art activities.</p>
+
+                    <div class="session-meta">
+                        <div class="session-chip">Ages 12+ years</div>
+                        <div class="session-chip">3:00 PM to 5:00 PM</div>
+                    </div>
+
+                    <div class="list-card">
+                        <h4 class="h5 fw-bold">Evening Activities</h4>
+                        <ul>
+                            <li>Thirty types of hand embroidering</li>
+                            <li>Basic fabric painting</li>
+                            <li>Dot mandala arts</li>
+                            <li>Mehendi</li>
+                        </ul>
+                    </div>
+
+                    <p class="mini-note mt-3 mb-0">This session gives older participants a more detailed creative track with guided practice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="activities" class="section-space pt-0">
+    <div class="container">
+        <div class="activity-banner p-4 p-lg-5">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5">
+                    <span class="accent-pill">Program Snapshot</span>
+                    <h2 class="fw-bold mt-3">A fuller camp experience across both sessions</h2>
+                    <p class="text-secondary mb-0">
+                        The Morning session carries the original crafts, games, songs, and shlokas program, while the Evening session adds advanced creative arts such as hand embroidery, fabric painting, dot mandala work, and mehendi.
+                    </p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="activity-layout row g-3">
+                        <div class="col-md-6">
+                            <div class="feature-card card h-100 border-0">
+                                <div class="card-body p-4">
+                                    <small class="text-uppercase fw-semibold">Morning Session</small>
+                                    <h3 class="h4 fw-bold mt-2">Original camp favourites</h3>
+                                    <p class="text-secondary mb-0">Crafts, games, songs and shlokas remain grouped together in the Morning session.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card card h-100 border-0">
+                                <div class="card-body p-4">
+                                    <small class="text-uppercase fw-semibold">Evening Session</small>
+                                    <h3 class="h4 fw-bold mt-2">New arts-focused additions</h3>
+                                    <p class="text-secondary mb-0">Thirty types of hand embroidering, basic fabric painting, dot mandala arts, and mehendi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="feature-card card border-0">
+                                <div class="card-body p-4">
+                                    <h3 class="h4 fw-bold">Third-year message</h3>
+                                    <p class="text-secondary mb-0">Soujanya's Summer Camp celebrates the successful completion of two years and warmly welcomes families into its third year with an expanded and refreshed program structure.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="enquiry" class="section-space pt-0">
+    <div class="container">
+        <div class="form-shell form-card card border-0 overflow-hidden">
+            <div class="card-body p-4 p-lg-5">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-4">
+                        <span class="accent-pill">Enquiry Form</span>
+                        <h2 class="fw-bold mt-3">Reserve a place in the session that fits your child</h2>
+                        <p class="text-secondary">
+                            Fill in the form and we will contact you with the next steps for Morning or Evening session enrolment.
+                        </p>
+                        <div class="list-card">
+                            <p class="fw-semibold mb-2">Camp Venue</p>
+                            <p class="text-secondary mb-0">Vasavi Sri Nilayam, RTC Colony, Chintalkunta, Saroor Nagar, Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+                            {% if form.non_field_errors %}
+                                <div class="alert alert-danger">
+                                    {{ form.non_field_errors }}
+                                </div>
+                            {% endif %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="{{ form.name.id_for_label }}" class="form-label">Parent Name</label>
+                                    {{ form.name }}
+                                    {% for error in form.name.errors %}
+                                        <div class="text-danger small mt-1">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="{{ form.phone.id_for_label }}" class="form-label">Phone Number</label>
+                                    {{ form.phone }}
+                                    {% for error in form.phone.errors %}
+                                        <div class="text-danger small mt-1">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="{{ form.child_age.id_for_label }}" class="form-label">Child Age</label>
+                                    {{ form.child_age }}
+                                    {% for error in form.child_age.errors %}
+                                        <div class="text-danger small mt-1">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="{{ form.batch.id_for_label }}" class="form-label">Preferred Batch</label>
+                                    {{ form.batch }}
+                                    {% for error in form.batch.errors %}
+                                        <div class="text-danger small mt-1">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-12">
+                                    <label for="{{ form.message.id_for_label }}" class="form-label">Message</label>
+                                    {{ form.message }}
+                                    {% for error in form.message.errors %}
+                                        <div class="text-danger small mt-1">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-12 d-grid d-sm-flex gap-3">
+                                    <button type="submit" class="btn btn-primary btn-lg">Submit Enquiry</button>
+                                    <a class="btn btn-whatsapp btn-lg" href="https://wa.me/919849228788" target="_blank" rel="noopener">WhatsApp 9849228788</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="text-white py-4">
+    <div class="container text-center">
+        <h2 class="h5 fw-bold">Soujanya's Summer Camp</h2>
+        <p class="mb-0 text-white-50">Vasavi Sri Nilayam, RTC Colony, Chintalkunta, Saroor Nagar, Hyderabad</p>
+    </div>
+</footer>
+{% endblock %}
